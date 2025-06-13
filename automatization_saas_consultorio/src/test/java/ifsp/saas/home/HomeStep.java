@@ -1,4 +1,5 @@
 package ifsp.saas.home;
+import ifsp.saas.login_paciente.LoginPacienteLogic;
 import ifsp.saas.login_secretaria.LoginSecretariaLogic;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
@@ -16,6 +17,7 @@ public class HomeStep {
   private static WebDriver driver;
   private HomeLogic loginLogic;
   private LoginSecretariaLogic loginSecretariaLogic;
+  private LoginPacienteLogic loginPacienteLogic;
 
 
   @Before
@@ -24,6 +26,7 @@ public class HomeStep {
     driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/index.html");
     loginLogic = new HomeLogic(driver);
     loginSecretariaLogic = new LoginSecretariaLogic(driver);
+    loginPacienteLogic = new LoginPacienteLogic(driver);
   }
 
   @AfterAll
@@ -43,8 +46,18 @@ public class HomeStep {
     loginLogic.pressToSecretariaButton();
   }
 
+  @When("clicar no botão Acesso ao paciente")
+  public void clicarNoBotãoAcessoAoPaciente() {
+    loginLogic.pressToPacientButton();
+  }
+
   @Then("deve vizualizar a tela de login da Secretaria")
   public void deveVizualizarATelaDeLoginDaSecretaria() {
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
+  }
+
+  @Then("deve vizualizar a tela de login do Paciente")
+  public void deveVizualizarATelaDeLoginDoPaciente() {
+    loginPacienteLogic.verifyIfIsPageLoginPaciente();
   }
 }
