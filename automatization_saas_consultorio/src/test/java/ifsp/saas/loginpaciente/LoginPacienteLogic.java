@@ -1,4 +1,4 @@
-package ifsp.saas.login_paciente;
+package ifsp.saas.loginpaciente;
 
 import org.openqa.selenium.WebDriver;
 

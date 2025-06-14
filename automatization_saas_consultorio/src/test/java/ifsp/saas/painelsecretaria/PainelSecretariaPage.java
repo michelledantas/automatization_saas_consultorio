@@ -1,0 +1,22 @@
+package ifsp.saas.painelsecretaria;
+
+import lombok.Getter;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+@Getter
+public class PainelSecretariaPage {
+  private WebDriver driver;
+
+  public PainelSecretariaPage(WebDriver driver) {
+    this.driver = driver;
+    PageFactory.initElements(driver, this);
+  }
+
+  @FindBy(xpath = "/html/body/header/h1")
+  private WebElement painelDaSecretaria;
+
+
+}

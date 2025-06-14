@@ -1,6 +1,6 @@
 package ifsp.saas.home;
-import ifsp.saas.login_paciente.LoginPacienteLogic;
-import ifsp.saas.login_secretaria.LoginSecretariaLogic;
+import ifsp.saas.loginpaciente.LoginPacienteLogic;
+import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -51,13 +51,13 @@ public class HomeStep {
     loginLogic.pressToPacientButton();
   }
 
-  @Then("deve vizualizar a tela de login da Secretaria")
-  public void deveVizualizarATelaDeLoginDaSecretaria() {
+  @Then("deve visualizar a tela de login da Secretaria")
+  public void deveVisualizarATelaDeLoginDaSecretaria() {
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
   }
 
-  @Then("deve vizualizar a tela de login do Paciente")
-  public void deveVizualizarATelaDeLoginDoPaciente() {
+  @Then("deve visualizar a tela de login do Paciente")
+  public void deveVisualizarATelaDeLoginDoPaciente() {
     loginPacienteLogic.verifyIfIsPageLoginPaciente();
   }
 }

@@ -8,7 +8,7 @@ import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("ifsp/saas/home")
-@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "ifsp.saas.home")
+@SelectClasspathResource("ifsp/saas")
+@ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "ifsp.saas.home,ifsp.saas.loginpaciente,ifsp.saas.loginsecretaria,ifsp.saas.painelsecretaria")
 public class RunCucumberTest {
 }

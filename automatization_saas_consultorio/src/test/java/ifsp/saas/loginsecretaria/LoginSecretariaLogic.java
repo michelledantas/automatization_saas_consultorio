@@ -1,4 +1,4 @@
-package ifsp.saas.login_secretaria;
+package ifsp.saas.loginsecretaria;
 
 import org.openqa.selenium.WebDriver;
 
@@ -16,6 +16,18 @@ public class LoginSecretariaLogic {
 
   public void verifyIfIsPageLoginSecretaria() {
     assertThat(loginSecretariaPage.getLoginSecretaria().getText()).isEqualTo(LOGIN_SECRETARIA);
+  }
+
+  public void inputEmail(){
+    loginSecretariaPage.getInputEmail().sendKeys("secretaria@exemplo.com");
+  }
+
+  public void inputPassword() {
+    loginSecretariaPage.getInputPassword().sendKeys("123");
+  }
+
+  public void pressBtnEntrar() {
+    loginSecretariaPage.getBtnEntrar().click();
   }
 }
 

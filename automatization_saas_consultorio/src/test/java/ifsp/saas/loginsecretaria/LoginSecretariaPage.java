@@ -1,4 +1,4 @@
-package ifsp.saas.login_secretaria;
+package ifsp.saas.loginsecretaria;
 
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
