@@ -1,42 +1,40 @@
 package ifsp.saas.loginsecretaria;
 
+import ifsp.saas.DriverManager;
 import ifsp.saas.home.HomeStep;
 import ifsp.saas.painelsecretaria.PainelSecretariaLogic;
-import io.cucumber.java.AfterAll;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoginSecretariaStep {
 
   private static final Logger log = LoggerFactory.getLogger(HomeStep.class);
-  private static WebDriver driver;
   private LoginSecretariaLogic loginSecretariaLogic;
   private PainelSecretariaLogic painelSecretariaLogic;
 
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
-    driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/login-secretary.html");
+    WebDriver driver = DriverManager.getDriver();
     loginSecretariaLogic = new LoginSecretariaLogic(driver);
     painelSecretariaLogic = new PainelSecretariaLogic(driver);
   }
 
-  @AfterAll
-  public static void tearDown() {
-    if (driver != null) {
-      driver.quit();
-    }
+  @After
+  public void tearDown() {
+    DriverManager.quitDriver();
   }
 
   @Given("que o usuário esteja na página de login da secretária")
   public void queOUsuarioEstejaNaPaginaDeLoginDaSecretaria() {
+    WebDriver driver = DriverManager.getDriver();
+    driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/login-secretary.html");
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
   }
 
@@ -48,6 +46,11 @@ public class LoginSecretariaStep {
   @And("preencher a senha")
   public void preencherASenha() {
     loginSecretariaLogic.inputPassword();
+  }
+
+  @And("preencher a senha inválida")
+  public void preencherASenhaInvalida() {
+    loginSecretariaLogic.inputPasswordInvalid();
   }
 
   @And("clicar no botão entrar")

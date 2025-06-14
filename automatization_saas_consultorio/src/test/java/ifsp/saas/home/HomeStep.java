@@ -1,4 +1,5 @@
 package ifsp.saas.home;
+import ifsp.saas.DriverManager;
 import ifsp.saas.loginpaciente.LoginPacienteLogic;
 import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
 import io.cucumber.java.AfterAll;
@@ -14,7 +15,7 @@ import org.slf4j.LoggerFactory;
 public class HomeStep {
 
   private static final Logger log = LoggerFactory.getLogger(HomeStep.class);
-  private static WebDriver driver;
+
   private HomeLogic loginLogic;
   private LoginSecretariaLogic loginSecretariaLogic;
   private LoginPacienteLogic loginPacienteLogic;
@@ -22,22 +23,21 @@ public class HomeStep {
 
   @Before
   public void setUp() {
-    driver = new ChromeDriver();
-    driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/index.html");
-    loginLogic = new HomeLogic(driver);
+    WebDriver driver = DriverManager.getDriver();
     loginSecretariaLogic = new LoginSecretariaLogic(driver);
     loginPacienteLogic = new LoginPacienteLogic(driver);
+    loginLogic = new HomeLogic(driver);
   }
 
   @AfterAll
   public static void tearDown() {
-    if (driver != null) {
-      driver.quit();
-    }
+    DriverManager.quitDriver();
   }
 
   @Given("que o usuário esteja na página home")
   public void queOUsuárioEstejaNaPáginaHome() {
+    WebDriver driver = DriverManager.getDriver();
+    driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/index.html");
     loginLogic.verifyIfIsInHomePage();
   }
 
@@ -54,6 +54,11 @@ public class HomeStep {
   @Then("deve visualizar a tela de login da Secretaria")
   public void deveVisualizarATelaDeLoginDaSecretaria() {
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
+  }
+
+  @Then("deve visualizar a mensagem email ou senha inválidos")
+  public void deveVisualizarAMensagemEmailOuSenhaInvalidos() {
+    loginSecretariaLogic.verifyIfErrorMessageApear();
   }
 
   @Then("deve visualizar a tela de login do Paciente")
