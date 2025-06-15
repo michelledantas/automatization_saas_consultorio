@@ -59,8 +59,10 @@ public class PainelSecretariaStep {
   }
 
   @Then("deve visualizar um alerta Paciente cadastrado com sucesso")
-  public void deveUmAlertaPacienteCadastradoComSucesso() {
-    painelSecretariaLogic.verifyAlertPacienteCadastrado(); //TODO PRECISA VALIDAR O ALERTA
+  public void deveUmAlertaPacienteCadastradoComSucesso(){
+    Alert alerta = driver.switchTo().alert();
+    String textoAlerta = alerta.getText();
+    painelSecretariaLogic.verifyAlertPacienteCadastrado(textoAlerta);
   }
 
   @When("clicar no botão sair")
@@ -69,7 +71,7 @@ public class PainelSecretariaStep {
   }
 
   @When("preencher os dados do medico")
-  public void preencherOsDadosDoMedico() throws InterruptedException {
+  public void preencherOsDadosDoMedico(){
     Medico medico = Medico.criarMedicoAleatorio();
     painelSecretariaLogic.inputDadosMedico(medico);
   }

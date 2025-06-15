@@ -42,8 +42,9 @@ public class PainelSecretariaLogic {
     painelSecretariaPage.getBtnCadastrarPaciente().click();
   }
 
-  public void verifyAlertPacienteCadastrado() {
+  public void verifyAlertPacienteCadastrado(String textoAlerta) {
     log.info("Verificando se o alerta Paciente Cadastrado com sucesso apareceu");
+    assertEquals("Paciente cadastrado com sucesso!", textoAlerta);
 
   }
 
