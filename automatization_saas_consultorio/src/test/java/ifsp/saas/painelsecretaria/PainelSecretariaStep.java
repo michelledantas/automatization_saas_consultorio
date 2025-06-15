@@ -58,4 +58,9 @@ public class PainelSecretariaStep {
   public void deveUmAlertaPacienteCadastradoComSucesso() {
     painelSecretariaLogic.verifyAlertPacienteCadastrado(); //TODO PRECISA VALIDAR O ALERTA
   }
+
+  @When("clicar no botão sair")
+  public void clicarNoBotaoSair() {
+    painelSecretariaLogic.pressBtnSair();
+  }
 }

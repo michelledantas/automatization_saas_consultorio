@@ -43,4 +43,9 @@ public class PainelSecretariaLogic {
     log.info("Verificando se o alerta Paciente Cadastrado com sucesso apareceu");
 
   }
+
+  public void pressBtnSair() {
+    log.info("Clicando no botão Sair");
+    painelSecretariaPage.getBtnSair().click();
+  }
 }

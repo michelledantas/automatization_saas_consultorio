@@ -22,6 +22,9 @@ public class PainelSecretariaPage {
   @FindBy(xpath = "/html/body/header/h1")
   private WebElement painelDaSecretaria;
 
+  @FindBy(id="btn-logout-secretary")
+  private WebElement btnSair;
+
   @FindBy(id = "paciente-nome")
   private WebElement inputPacientName;
 
