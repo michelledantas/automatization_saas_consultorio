@@ -3,17 +3,36 @@ package ifsp.saas.agendamento;
 //secretaria@exemplo.com
 //senha secretaria: 123
 import ifsp.saas.DriverManager;
-import ifsp.saas.agendamento.AgendamentoConsultaPage;
 
+
+import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
 import org.openqa.selenium.WebDriver;
 
 public class AgendamentoConsultaLogic {
 
+    private final WebDriver driver;
     private final AgendamentoConsultaPage page;
+    private final LoginSecretariaLogic loginSecretariaLogic;
 
     public AgendamentoConsultaLogic(WebDriver driver) {
+        this.driver = driver;
         this.page = new AgendamentoConsultaPage(driver);
+        this.loginSecretariaLogic = new LoginSecretariaLogic(driver); // reuso
     }
+    /**
+     * Método para acessar a tela de agendamento de consultas.
+     * Pode ser usado em testes automatizados para simular o acesso à página.
+     */
+
+    public void acessarTelaDeAgendamentoComLogin() {
+        // login reutilizado
+        driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/login-secretary.html"); // ou a URL após login
+        loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
+        loginSecretariaLogic.inputEmail();
+        loginSecretariaLogic.inputPassword();
+        loginSecretariaLogic.pressBtnEntrar();
+    }
+
 
     public void acessarTelaAgendamento() {
         // Simulação de acesso à tela de agendamento

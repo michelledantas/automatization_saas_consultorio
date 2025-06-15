@@ -26,7 +26,7 @@ public class AgendamentoConsultaSteps {
 
     @Dado("que o usuário está logado no sistema")
     public void que_o_usuário_está_logado_no_sistema() {
-        // Suponha que login foi feito em um passo anterior ou no Background
+        agendamentoConsultaLogic.acessarTelaDeAgendamentoComLogin();
         agendamentoConsultaLogic.acessarTelaAgendamento();
     }
 
