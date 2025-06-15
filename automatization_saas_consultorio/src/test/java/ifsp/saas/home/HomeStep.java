@@ -35,19 +35,19 @@ public class HomeStep {
   }
 
   @Given("que o usuário esteja na página home")
-  public void queOUsuárioEstejaNaPáginaHome() {
+  public void queOUsuarioEstejaNaPaginaHome() {
     WebDriver driver = DriverManager.getDriver();
     driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/index.html");
     loginLogic.verifyIfIsInHomePage();
   }
 
   @When("clicar no botão Acesso a secretaria")
-  public void clicarNoBotãoAcessoASecretaria() {
+  public void clicarNoBotaoAcessoASecretaria() {
     loginLogic.pressToSecretariaButton();
   }
 
   @When("clicar no botão Acesso ao paciente")
-  public void clicarNoBotãoAcessoAoPaciente() {
+  public void clicarNoBotaoAcessoAoPaciente() {
     loginLogic.pressToPacientButton();
   }
 

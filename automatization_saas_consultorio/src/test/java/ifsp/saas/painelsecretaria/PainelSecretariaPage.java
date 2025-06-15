@@ -40,13 +40,16 @@ public class PainelSecretariaPage {
   @FindBy(id = "error-paciente-telefone")
   private WebElement errorPacienteTelefone;
 
+  @FindBy(id = "paciente-email")
+  private WebElement inputPacienteEmail;
+
   @FindBy(id = "paciente-senha")
   private WebElement inputPacienteSenha;
 
   @FindBy(id = "error-paciente-senha")
   private WebElement errorPacienteSenha;
 
-  @FindBy(xpath = "*[@id=\"form-paciente\"]/button")
+  @FindBy(xpath = "//*[@id=\"form-paciente\"]/button")
   private WebElement btnCadastrarPaciente;
 
   @FindBy(xpath = "*[@id=\"form-medico\"]/button")
