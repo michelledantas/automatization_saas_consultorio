@@ -30,8 +30,7 @@ public class LoginPacientStep {
   }
 
   @When("clicar em voltar para a página inicial")
-  public void clicarEmVoltarParaAPaginaInicial() throws InterruptedException {
-    Thread.sleep(2000);
+  public void clicarEmVoltarParaAPaginaInicial() {
     loginPacienteLogic.pressVoltarParaPaginaInicial();
 
   }
