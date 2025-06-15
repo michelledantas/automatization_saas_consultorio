@@ -24,5 +24,9 @@ public class LoginPacienteLogic {
     log.info("Verificando se está na página Login do Paciente");
     assertThat(loginPacientePage.getLoginPaciente().getText()).isEqualTo(LOGIN_PACIENTE);
   }
+
+  public void pressVoltarParaPaginaInicial() {
+    loginPacientePage.getVoltarParaPaginaInicial().click();
+  }
 }
 

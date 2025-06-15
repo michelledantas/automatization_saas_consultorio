@@ -35,6 +35,9 @@ public class LoginPacientePage {
   @FindBy(className = "btn-success")
   private WebElement btnEntrar;
 
+  @FindBy(xpath = "/html/body/main/div/p[2]/a")
+  private WebElement voltarParaPaginaInicial;
+
   public void waitForElement(WebElement element) {
     new WebDriverWait(driver, Duration.ofSeconds(10))
         .until(ExpectedConditions.visibilityOf(element));
