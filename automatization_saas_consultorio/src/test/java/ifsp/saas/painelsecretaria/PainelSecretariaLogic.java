@@ -1,11 +1,14 @@
 package ifsp.saas.painelsecretaria;
 
 import ifsp.saas.home.HomeStep;
+import ifsp.saas.utils.Medico;
+import ifsp.saas.utils.Paciente;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PainelSecretariaLogic {
 
@@ -47,5 +50,21 @@ public class PainelSecretariaLogic {
   public void pressBtnSair() {
     log.info("Clicando no botão Sair");
     painelSecretariaPage.getBtnSair().click();
+  }
+
+  public void inputDadosMedico(Medico medico){
+    log.info("Preenchendo dados do Médico");
+    painelSecretariaPage.getInputMedicoNome().sendKeys(medico.getNome());
+    painelSecretariaPage.getInputMedicoEspecialidade().sendKeys(medico.getEspecialidade());
+    painelSecretariaPage.getInputMedicoCrm().sendKeys(medico.getCrm());
+  }
+
+  public void pressBtnCadastrarMedico(){
+    log.info("Clicando no botão Cadastrar Médico");
+    painelSecretariaPage.getBtnCadastrarMedico().click();
+  }
+
+  public void deveVisualizarUmAlertaMedicoCadastradoComSucesso(String textoAlerta) {
+    assertEquals("Médico cadastrado com sucesso!", textoAlerta);
   }
 }

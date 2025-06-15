@@ -1,4 +1,4 @@
-package ifsp.saas.painelsecretaria;
+package ifsp.saas.utils;
 
 import com.github.javafaker.Faker;
 import lombok.Builder;

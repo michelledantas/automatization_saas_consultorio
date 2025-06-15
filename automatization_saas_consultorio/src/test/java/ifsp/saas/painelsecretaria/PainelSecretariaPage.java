@@ -55,7 +55,7 @@ public class PainelSecretariaPage {
   @FindBy(xpath = "//*[@id=\"form-paciente\"]/button")
   private WebElement btnCadastrarPaciente;
 
-  @FindBy(xpath = "*[@id=\"form-medico\"]/button")
+  @FindBy(xpath = "//*[@id=\"form-medico\"]/button")
   private WebElement btnCadastrarMedico;
 
   @FindBy(id = "consulta-paciente")

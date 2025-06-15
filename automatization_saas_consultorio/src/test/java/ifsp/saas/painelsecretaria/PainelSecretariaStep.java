@@ -3,15 +3,19 @@ package ifsp.saas.painelsecretaria;
 import ifsp.saas.DriverManager;
 import ifsp.saas.home.HomeStep;
 import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
+import ifsp.saas.utils.Medico;
+import ifsp.saas.utils.Paciente;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 public class PainelSecretariaStep {
 
@@ -23,7 +27,7 @@ public class PainelSecretariaStep {
 
   @Before
   public void setUp() {
-    WebDriver driver = DriverManager.getDriver();
+    driver = DriverManager.getDriver();
     painelSecretariaLogic = new PainelSecretariaLogic(driver);
     loginSecretariaLogic = new LoginSecretariaLogic(driver);
   }
@@ -62,5 +66,23 @@ public class PainelSecretariaStep {
   @When("clicar no botão sair")
   public void clicarNoBotaoSair() {
     painelSecretariaLogic.pressBtnSair();
+  }
+
+  @When("preencher os dados do medico")
+  public void preencherOsDadosDoMedico() throws InterruptedException {
+    Medico medico = Medico.criarMedicoAleatorio();
+    painelSecretariaLogic.inputDadosMedico(medico);
+  }
+
+  @And("clicar no botão Cadastrar Medico")
+  public void clicarNoBotaoCadastrarMedico(){
+    painelSecretariaLogic.pressBtnCadastrarMedico();
+  }
+
+  @Then("deve visualizar um alerta Medico cadastrado com sucesso")
+  public void deveVisualizarUmAlertaMedicoCadastradoComSucesso() {
+    Alert alerta = driver.switchTo().alert();
+    String textoAlerta = alerta.getText();
+    painelSecretariaLogic.deveVisualizarUmAlertaMedicoCadastradoComSucesso(textoAlerta);
   }
 }

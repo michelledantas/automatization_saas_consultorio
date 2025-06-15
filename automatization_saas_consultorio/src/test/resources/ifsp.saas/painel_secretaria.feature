@@ -13,3 +13,10 @@ Feature: Painel Secretaria
     When preencher os dados do paciente
     And clicar no botão Cadastrar Paciente
     Then deve visualizar um alerta Paciente cadastrado com sucesso
+
+  @cadastrar_medico
+  Scenario: Cadastrar Medico
+    Given que o usuário esteja na página de painel da secretária
+    When preencher os dados do medico
+    And clicar no botão Cadastrar Medico
+    Then deve visualizar um alerta Medico cadastrado com sucesso
