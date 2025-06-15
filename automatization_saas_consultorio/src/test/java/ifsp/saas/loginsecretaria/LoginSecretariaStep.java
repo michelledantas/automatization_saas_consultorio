@@ -32,7 +32,7 @@ public class LoginSecretariaStep {
   }
 
   @Given("que o usuário esteja na página de login da secretária")
-  public void queOUsuarioEstejaNaPaginaDeLoginDaSecretaria() {
+  public void queOUsuarioEstejaNaPaginaDeLoginDaSecretaria(){
     WebDriver driver = DriverManager.getDriver();
     driver.get("https://brenoaissa.github.io/SaaSConsultorioTC1/login-secretary.html");
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
@@ -59,5 +59,10 @@ public class LoginSecretariaStep {
   public void preencherOsDadosDeLoginInvalido() {
     loginSecretariaLogic.inputEmail();
     loginSecretariaLogic.inputPasswordInvalid();
+  }
+
+  @When("clicar em Voltar para a página inicial")
+  public void clicarEmVoltarParaAPaginaInicial(){
+    loginSecretariaLogic.pressVoltarParaPaginaInicial();
   }
 }

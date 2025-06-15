@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,5 +63,10 @@ public class HomeStep {
   @Then("deve visualizar a tela de login do Paciente")
   public void deveVisualizarATelaDeLoginDoPaciente() {
     loginPacienteLogic.verifyIfIsPageLoginPaciente();
+  }
+
+  @Then("deve visualizar a pagina inicial")
+  public void deveVisualizarAPaginaInicial() {
+    loginLogic.verifyIfIsInHomePage();
   }
 }

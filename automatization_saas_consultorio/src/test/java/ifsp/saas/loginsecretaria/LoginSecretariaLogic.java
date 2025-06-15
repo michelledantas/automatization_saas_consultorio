@@ -56,5 +56,10 @@ public class LoginSecretariaLogic {
     loginSecretariaPage.waitForElement(loginSecretariaPage.getErrorLogin());
     assertThat(loginSecretariaPage.getErrorLogin().getText()).isEqualTo(ERROR_LOGIN_SECRETARY);
   }
+
+  public void pressVoltarParaPaginaInicial() {
+    log.info("Clicando em Voltar para a página inicial");
+    loginSecretariaPage.getVoltarParaAPaginaInicial().click();
+  }
 }
 

@@ -15,4 +15,11 @@ Feature: Login Secretaria
     And clicar no botão entrar
     Then deve visualizar a mensagem email ou senha inválidos
 
+  @voltar_para_pagina_inicial
+  Scenario: Voltar para a página inicial
+    Given que o usuário esteja na página de login da secretária
+    When clicar em Voltar para a página inicial
+    Then deve visualizar a pagina inicial
+
+
 

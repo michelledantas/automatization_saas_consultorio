@@ -35,6 +35,9 @@ public class LoginSecretariaPage {
   @FindBy(xpath = "//*[@id=\"error-login-secretary\"]")
   private WebElement errorLogin;
 
+  @FindBy(xpath = "/html/body/main/div/p/a")
+  private WebElement voltarParaAPaginaInicial;
+
   @FindBy(className = "btn-primary")
   private WebElement btnEntrar;
 
