@@ -38,21 +38,6 @@ public class LoginSecretariaStep {
     loginSecretariaLogic.verifyIfIsPageLoginSecretaria();
   }
 
-  @When("preencher o email")
-  public void preencherOEmail() {
-    loginSecretariaLogic.inputEmail();
-  }
-
-  @And("preencher a senha")
-  public void preencherASenha() {
-    loginSecretariaLogic.inputPassword();
-  }
-
-  @And("preencher a senha inválida")
-  public void preencherASenhaInvalida() {
-    loginSecretariaLogic.inputPasswordInvalid();
-  }
-
   @And("clicar no botão entrar")
   public void clicarNoBotãoEntrar() {
     loginSecretariaLogic.pressBtnEntrar();
@@ -61,5 +46,18 @@ public class LoginSecretariaStep {
   @Then("deve visualizar a tela painel da secretária")
   public void deveVisualizarATelaPainelDaSecretaria() {
     painelSecretariaLogic.verifyIfIsPagePainelSecretaria();
+  }
+
+  @When("preencher os dados de login")
+  public void preencherOsDadosDeLogin() {
+    loginSecretariaLogic.inputEmail();
+    loginSecretariaLogic.inputPassword();
+
+  }
+
+  @When("preencher os dados de login invalido")
+  public void preencherOsDadosDeLoginInvalido() {
+    loginSecretariaLogic.inputEmail();
+    loginSecretariaLogic.inputPasswordInvalid();
   }
 }
