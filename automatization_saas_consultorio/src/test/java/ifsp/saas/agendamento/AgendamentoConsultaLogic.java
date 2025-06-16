@@ -6,7 +6,11 @@ import ifsp.saas.DriverManager;
 
 
 import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.time.LocalDateTime;
 
 public class AgendamentoConsultaLogic {
 
@@ -38,15 +42,26 @@ public class AgendamentoConsultaLogic {
         // Simulação de acesso à tela de agendamento
         // Você pode usar: driver.get("URL_da_tela_de_agendamento");
         DriverManager.getDriver().get("https://brenoaissa.github.io/SaaSConsultorioTC1/secretary-dashboard.html");
+
+        // Verifica se a página de agendamento foi carregada corretamente
+        if (!driver.getTitle().contains("Agendamento de Consultas")) {
+            throw new IllegalStateException("Não foi possível acessar a tela de agendamento de consultas.");
+        }
     }
 
-    public void preencherDadosPaciente() {
+    public void preencherDadosPaciente(int index) {
         page.clicarSelecionarPaciente();
+        // Seleciona o paciente pelo índice informado
+        WebElement selecionandoPaciente = driver.findElement(By.xpath("//*[@id='consulta-paciente']/option[" + index + "]"));
+        selecionandoPaciente.click();
     }
 
-    public void preencherMedicoEData() {
+    public void preencherMedicoEData(int index, LocalDateTime dataHora) {
         page.clicarSelecionarMedico();
-        page.clicarSelecionarDataHora();
+        // Seleciona o médico pelo índice informado
+        WebElement selecionandoMedico = driver.findElement(By.xpath("//*[@id='consulta-medico']/option["+ index +"]"));
+        selecionandoMedico.click();
+        page.clicarSelecionarDataHora(dataHora);
     }
 
     public void confirmarAgendamento() {
