@@ -30,13 +30,12 @@ public class ConsultasAgendadasPage {
     @FindBy(xpath = "//*[@id='consultas-agendadas-lista']/li/button")
     private List<WebElement> botoesCancelarConsulta;
 
-    // ✅ Verifica se há consultas listadas
+
     public boolean haConsultasAgendadas() {
         wait.until(ExpectedConditions.visibilityOf(historicoConsultasPaciente));
         return !botoesCancelarConsulta.isEmpty();
     }
 
-    // ✅ Cancela a primeira consulta da lista
     public void cancelarPrimeiraConsulta() {
         if (haConsultasAgendadas()) {
             WebElement botao = botoesCancelarConsulta.get(0);

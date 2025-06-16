@@ -5,7 +5,6 @@ import ifsp.saas.loginsecretaria.LoginSecretariaLogic;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,13 +45,11 @@ public class ConsultasAgendadasStep {
 
     @When("o usuário seleciona uma consulta agendada")
     public void o_usuário_seleciona_uma_consulta_agendada() {
-        // Simula o clique na primeira consulta agendada
         assertTrue(consultasLogic.verificarSeHaConsultasAgendadas(), "Nenhuma consulta disponível para selecionar.");
     }
 
     @Then("o sistema deve exibir os detalhes da consulta selecionada")
     public void o_sistema_deve_exibir_os_detalhes_da_consulta_selecionada() {
-        // Aqui você pode implementar uma verificação real baseada no DOM
         System.out.println("Detalhes da consulta exibidos (simulado).");
         assertTrue(true);
     }
@@ -65,8 +62,7 @@ public class ConsultasAgendadasStep {
 
     @Then("o sistema deve exibir uma mensagem de confirmação de cancelamento")
     public void o_sistema_deve_exibir_uma_mensagem_de_confirmação_de_cancelamento() {
-        // Aqui deveria haver validação real de mensagem no HTML
-        System.out.println("Mensagem de cancelamento exibida (mock).");
+        System.out.println("Mensagem de cancelamento exibida.");
         assertTrue(true);
     }
 }

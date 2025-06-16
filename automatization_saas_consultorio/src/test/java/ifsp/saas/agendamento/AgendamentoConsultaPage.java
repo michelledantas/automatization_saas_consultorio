@@ -44,11 +44,9 @@ public class AgendamentoConsultaPage {
     }
 
     public void clicarSelecionarDataHora(LocalDateTime dataHora) {
-        // Formata a data e hora para o formato esperado pelo campo
         String formattedDateTime = dataHora.toLocalDate() + "T" + dataHora.toLocalTime().toString();
         selecionarDataHora.clear();
         selecionarDataHora.sendKeys(formattedDateTime);
-        // Clica no campo para aplicar a data e hora selecionadas
         wait.until(ExpectedConditions.elementToBeClickable(selecionarDataHora));
         selecionarDataHora.click();
     }

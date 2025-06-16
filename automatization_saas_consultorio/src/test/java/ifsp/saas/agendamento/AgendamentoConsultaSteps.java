@@ -6,8 +6,6 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.pt.*;
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.WebDriver;
 
 import java.time.LocalDateTime;
@@ -39,6 +37,7 @@ public class AgendamentoConsultaSteps {
     @When("o usuário seleciona a opção de agendar consulta")
     public void o_usuário_seleciona_a_opção_de_agendar_consulta() {
         agendamentoConsultaLogic.acessarTelaAgendamento();
+
     }
 
     @Then("preenche os dados do paciente")
@@ -73,7 +72,6 @@ public class AgendamentoConsultaSteps {
 
     @When("o usuário verifica a disponibilidade do médico para a data selecionada")
     public void o_usuário_verifica_a_disponibilidade_do_médico_para_a_data_selecionada() {
-        // Essa verificação pode ser feita após selecionar data
         agendamentoConsultaLogic.preencherMedicoEData(2, LocalDateTime.now().plusDays(1));
     }
 

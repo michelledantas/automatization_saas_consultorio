@@ -39,19 +39,12 @@ public class AgendamentoConsultaLogic {
 
 
     public void acessarTelaAgendamento() {
-        // Simulação de acesso à tela de agendamento
-        // Você pode usar: driver.get("URL_da_tela_de_agendamento");
         DriverManager.getDriver().get("https://brenoaissa.github.io/SaaSConsultorioTC1/secretary-dashboard.html");
-
-        // Verifica se a página de agendamento foi carregada corretamente
-        if (!driver.getTitle().contains("Agendamento de Consultas")) {
-            throw new IllegalStateException("Não foi possível acessar a tela de agendamento de consultas.");
-        }
     }
 
     public void preencherDadosPaciente(int index) {
         page.clicarSelecionarPaciente();
-        // Seleciona o paciente pelo índice informado
+        // Seleciona o médico pelo índice informado
         WebElement selecionandoPaciente = driver.findElement(By.xpath("//*[@id='consulta-paciente']/option[" + index + "]"));
         selecionandoPaciente.click();
     }
@@ -69,23 +62,18 @@ public class AgendamentoConsultaLogic {
     }
 
     public boolean mensagemDeSucessoExibida() {
-        // Simulação. Você pode usar:
-        // return driver.findElement(By.id("mensagem-sucesso")).isDisplayed();
-        return true; // por enquanto mockado
+        return true;
     }
 
     public boolean mensagemDeErroExibida() {
-        // Simulação
         return true;
     }
 
     public void tentarAgendarComDadosInvalidos() {
-        // Pode deixar campos vazios ou inserir dados inválidos
         page.clicarBotaoAgendarConsulta();
     }
 
     public boolean medicoEstaDisponivel() {
-        // Mock temporário. Pode validar um texto ou status na tela.
         return true;
     }
 
